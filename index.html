@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP1 | Exercice1</title>
+    <style>
+      textarea {
+        width: 200px;
+        height: 100px;
+      }
+    </style>
   </head>
   <body>
     <textarea
-      onkeypress="afficher()"
-      id="zoneText"
-      cols="30"
-      rows="10"
+      onkeypress="count()"
+      maxlength="60"
       placeholder=" saisir un texte "
     ></textarea>
     <p id="nbre"></p>
     <script>
-      function afficher() {
-        var text = document.getElementById("zoneText").Value;
-        var arr = new Array();
-        for (var i = 0; i < text.length; i++) {
-          if (text[i] != "") {
-            arr[i] = text[i];
-          }
+      var i = 0;
+      function count() {
+        if (i < 60) {
+          i++;
+          document.getElementById("nbre").innerHTML = i;
+        } else {
+          return;
         }
-        document.getElementById("nbre").innerHTML = arr.length;
       }
     </script>
   </body>
